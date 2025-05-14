@@ -1,0 +1,138 @@
+<div class="profile-container">
+
+  <div class="namepath">
+    <span>Home / users</span>
+  </div>
+
+  <div class="knowdata">
+    <h1>User Management</h1>
+    <div class="add-profile-container">
+      <button mat-raised-button class="logout" (click)="Logout()">
+        Logout
+      </button>
+    </div>
+  </div>
+
+  <main class="profile-main">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 profile-table" matSort>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{element.name || '-'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let element">{{element.description|| '-'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="locations">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Known place location</th>
+        <td mat-cell *matCellDef="let element">{{element.locations?.join(', ') || '-'}}</td>
+      </ng-container>
+
+     <ng-container matColumnDef="edit">
+  <th mat-header-cell *matHeaderCellDef [hidden]="userRole !== 'admin'">Edit</th>
+  <td mat-cell *matCellDef="let element" [hidden]="userRole !== 'admin'">
+    <button mat-icon-button color="primary" (click)="openEditProfilePanel(element)">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </td>
+</ng-container>
+
+
+      <ng-container *ngIf="userRole === 'admin'" matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn" (click)="deleteProfile(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator
+      [length]="totalProfiles"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 20]"
+      (page)="onPageChange($event)"
+      showFirstLastButtons
+      aria-label="Select page">
+    </mat-paginator>
+  </main>
+
+  <div *ngIf="showPanel" class="side-panel" [class.open]="showPanel">
+    <div class="side-panel-header">
+      <h2>Edit User Profile</h2>
+      <button mat-icon-button (click)="closeEditProfilePanel()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <form>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>User Name*</mat-label>
+        <input matInput maxlength="20" placeholder="Enter user name" [(ngModel)]="profileForm.name" name="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Enter description" [(ngModel)]="profileForm.description" name="description"></textarea>
+      </mat-form-field>
+
+    <label class="section-label">Known Place Location<span class="text-danger">*</span></label>
+<div class="known-places-container">
+  <!-- Available Places -->
+  <div class="known-places-list">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Available known places</mat-label>
+      <input matInput placeholder="Search Here..." [(ngModel)]="availableSearchText" name="availableSearch" />
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="places-list">
+      <div class="place-item" *ngFor="let place of filteredAvailablePlaces()">
+        <mat-icon>location_on</mat-icon>
+        <span>{{ place }}</span>
+        <button mat-icon-button (click)="addPlace(place)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Selected Places -->
+  <div class="known-places-list">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Selected known places</mat-label>
+      <input matInput placeholder="Search Here..." [(ngModel)]="selectedSearchText" name="selectedSearch" />
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="places-list">
+      <div class="place-item" *ngFor="let place of filteredSelectedPlaces()">
+        <mat-icon>location_on</mat-icon>
+        <span>{{ place }}</span>
+        <button mat-icon-button (click)="removePlace(place)">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <div class="side-panel-actions">
+        <button mat-raised-button color="primary" (click)="submitProfile()">Update</button>
+        <button mat-stroked-button color="warn" (click)="resetForm()">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>

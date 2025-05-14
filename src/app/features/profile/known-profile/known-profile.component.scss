@@ -1,0 +1,357 @@
+/* General container and layout */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.namepath{
+  display: flex;
+    justify-content: start;
+    padding-left: 20px;
+    top: 4px;
+    padding-bottom: 12px;
+    position: relative;
+}
+.knowdata {
+ display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .add-profile-container {
+    display: flex;
+    gap: 1.5em;
+
+    .addprofile {
+      background: linear-gradient(90deg, #2a3f8f, #6a4b9a);
+      color: white;
+      font-weight: 700;
+      border-radius: 6px;
+      // padding: 10px 20px;
+      box-shadow: none;
+
+      &:hover {
+        background-color: #bdb9ae;
+      }
+    }
+
+    .logout {
+      background-color: #b71c1c;
+      color: white;
+      border-radius: 6px;
+      // padding: 10px 20px;
+      box-shadow: none;
+
+      &:hover {
+        background-color: #9b1b1b;
+      }
+    }
+  }
+}
+
+
+/* Header styles */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #2a3f8f, #6a4b9a);
+  padding: 0 20px;
+  height: 60px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+
+  .logo {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .top-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-right: 30px;
+
+      a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+
+        &.active,
+        &:hover {
+          background-color: white;
+          color: #2a3f8f;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+
+    button {
+      color: white;
+      margin-right: 15px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+    }
+
+    .logo-acc {
+      font-weight: 700;
+      font-size: 18px;
+      margin-left: 20px;
+    }
+  }
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 15px 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Main content */
+.profile-main {
+  padding: 20px;
+  background: white;
+  margin: 0 20px 20px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+
+  h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  button[mat-raised-button] {
+    background-color: #f7b500;
+    color: #2a3f8f;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    box-shadow: none;
+
+    &:hover {
+      background-color: #d9a300;
+    }
+  }
+}
+
+/* Table styles */
+.profile-table {
+  width: 100%;
+
+  th.mat-header-cell {
+    background-color: #2a3f8f;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  td.mat-cell {
+    font-size: 14px;
+    color: #333;
+  }
+
+  tr.mat-row:hover {
+    background-color: #f0f0f0;
+  }
+
+  button.mat-icon-button {
+    color: #6a4b9a;
+
+    &:hover {
+      color: #2a3f8f;
+    }
+  }
+
+  button.mat-icon-button[color="warn"] {
+    color: #e53935;
+
+    &:hover {
+      color: #b71c1c;
+    }
+  }
+}
+
+/* Pagination styles */
+.mat-paginator {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .mat-paginator-range-label {
+    font-weight: 600;
+    color: #555;
+  }
+
+  .mat-paginator-page-size {
+    margin-left: 20px;
+  }
+
+  .mat-paginator-navigation-previous,
+  .mat-paginator-navigation-next,
+  .mat-paginator-navigation-first,
+  .mat-paginator-navigation-last {
+    color: #2a3f8f;
+  }
+
+  .mat-paginator-page-size-label {
+    font-weight: 600;
+  }
+}
+
+/* Sidebar form styles */
+.side-panel {
+  position: fixed;
+  top: 60px;
+  right: -400px;
+  width: 400px;
+  height: calc(100% - 60px);
+  background: white;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+  border-radius: 0 0 0 8px;
+
+  &.open {
+    right: 0;
+  }
+
+  .side-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-weight: 700;
+      font-size: 20px;
+      color: #2a3f8f;
+    }
+
+    button {
+      color: #2a3f8f;
+    }
+  }
+
+  form {
+    .full-width {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .section-label {
+      font-weight: 700;
+      margin: 15px 0 10px 0;
+      display: block;
+      color: #2a3f8f;
+    }
+
+    .known-places-container {
+      display: flex;
+      justify-content: space-between;
+
+      .known-places-list {
+        width: 48%;
+
+        .places-list {
+          max-height: 200px;
+          overflow-y: auto;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          padding: 10px;
+
+          .place-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 0;
+
+            mat-icon {
+              color: #2a3f8f;
+            }
+
+            span {
+              flex-grow: 1;
+              margin-left: 10px;
+              font-size: 14px;
+              color: #333;
+            }
+
+            button {
+              color: #2a3f8f;
+            }
+          }
+        }
+      }
+    }
+
+    .side-panel-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        width: 48%;
+        font-weight: 700;
+        border-radius: 6px;
+      }
+
+      button[color="primary"] {
+        background: linear-gradient(90deg, #2a3f8f, #6a4b9a);
+        color: white;
+
+        &:hover {
+          background: linear-gradient(90deg, #1f2e6f, #4a3a7a);
+        }
+      }
+
+      button[color="warn"] {
+        border-color: #e53935;
+        color: #e53935;
+
+        &:hover {
+          background-color: #fce4e4;
+        }
+      }
+    }
+  }
+}

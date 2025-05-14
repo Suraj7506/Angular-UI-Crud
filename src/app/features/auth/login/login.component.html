@@ -1,0 +1,62 @@
+<div class="login-wrapper">
+  <div class="main-box">
+    <div class="login-left">
+      <img src="../../../../assets/background.png" alt="Login Background" class="login-bg-image" />
+        <img src="../../../../assets/bg.png" alt="Overlay" class="overlay-image" />
+    </div>
+    <div class="login-right">
+      <div class="login-tabs">
+        <button [class.active]="selectedTab === 'hrAdmin'" (click)="selectedTab = 'hrAdmin'">HR Admin</button>
+        <button [class.active]="selectedTab === 'vendor'" (click)="selectedTab = 'vendor'">Vendor</button>
+      </div>
+      <h2>Login to Field Force Assessment</h2>
+      <form *ngIf="selectedTab === 'hrAdmin'" (ngSubmit)="onLogin()">
+        <label for="adId">AD ID</label>
+        <input id="adId" type="text" placeholder="Enter your AD ID" [(ngModel)]="username" name="username" required />
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="********" [(ngModel)]="password" name="password" required />
+        <button type="submit" class="login-button">Login</button>
+      </form>
+      <form *ngIf="selectedTab === 'vendor' && !otpSent" (ngSubmit)="onSendOtp()">
+  <label for="mobileNumber">Mobile Number</label>
+  <input id="mobileNumber" type="text" maxlength="10" placeholder="Enter 10 digit mobile number"
+         [(ngModel)]="mobileNumber" name="mobileNumber" required />
+  <button type="submit" class="login-button">Send OTP</button>
+</form>
+
+<!-- OTP Input Section -->
+<div *ngIf="otpSent && selectedTab === 'vendor'" class="otp-section">
+  <label>Enter OTP</label>
+  <div class="otp-inputs">
+   <input maxlength="1"
+       *ngFor="let digit of otpDigits; let i = index"
+       [(ngModel)]="otp[i]" [name]="'otp' + i"
+       (input)="moveToNext($event, i)" required />
+  </div>
+  <button (click)="onVerifyOtp()" class="otp-button">Verify OTP</button>
+</div>
+
+      <p class="terms-text">
+        By continuing, You agree to our <a href="#">T&amp;C</a> and <a href="#">Privacy Policy</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="notices">
+      <div class="notice">
+        <h3>Important Notices</h3>
+        <ul>
+          <li>Introducing, the new toll-free number to call our Customers Care and avail our helpline services : 1800 121 4444 66</li>
+          <li>An additional feature of “CAPTCHA” has been introduced for ICICI Bank’s Internet Backing Login.</li>
+        </ul>
+      </div>
+      <div class="notice-info">
+        <h3>Important security information:</h3>
+        <ul>
+          <li>Before logging in, please ensure that the URL address in the address bar of your browser starts with https://retailermahotsav.com.</li>
+          <li>Never provide your User ID or password to any one on phone or in response to a mail.</li>
+        </ul>
+      </div>
+    </div>
+</div>
+

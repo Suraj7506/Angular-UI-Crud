@@ -1,0 +1,12 @@
+<header *ngIf="isLoggedIn" class="app-header">
+  <nav class="top-nav">
+    <ul>
+      <li>
+        <a routerLink="/users" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">User Management</a>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Known Profiles</a>
+      </li>
+    </ul>
+  </nav>
+</header>

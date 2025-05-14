@@ -1,0 +1,213 @@
+.login-wrapper {
+  background: linear-gradient(106.98deg, #A89DCA 8.39%, #CEC1DD 32.06%, #F4EDF5 56.25%, #CFBAD7 83.02%, #C3A9CD 100%);
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 40px;
+}
+
+.login-left {
+  flex: 1;
+  display: flex;
+  bottom: 12em;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-left {
+  position: relative; /* Needed for absolute positioning of child */
+}
+
+.login-bg-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 60%;
+  margin-top: 230px;
+}
+
+.overlay-image {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  z-index: 2;
+  margin-top: 300px;
+}
+
+.login-right {
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-tabs {
+  display: flex;
+  margin-bottom: 40px;
+  border: 1px solid #0071bc;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.login-tabs button {
+  padding: 10px 57px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: #0071bc;
+  transition: background 0.3s, color 0.3s;
+  outline: none;
+}
+
+.login-tabs button.active {
+  background: linear-gradient(90deg, #0071bc 0%, #b31e6f 100%);
+  color: #fff;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0071bc;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #b31e6f;
+}
+
+.login-button {
+  background: linear-gradient(90deg, #0071bc 0%, #b31e6f 100%);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 14px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background: linear-gradient(90deg, #b31e6f 0%, #0071bc 100%);
+}
+
+.terms-text {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #000;
+}
+
+.terms-text a {
+  color: #0071bc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.notices {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 40px 0;
+  font-size: 12px;
+  color: #000;
+}
+
+.notice {
+  width: 48%;
+  background: #f0e6ff;
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+
+.notice-info {
+  width: 48%;
+  position: relative;
+  background: #f0e6ff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  left: 30px;
+}
+
+.notice h3 {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.notice ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.notice ul li {
+  margin-bottom: 8px;
+}
+
+.main-box {
+  display: flex;
+}
+
+.otp-section {
+  margin-top: 20px;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* Allow inputs to wrap if needed */
+}
+
+.otp-inputs input {
+  width: 40px;
+  height: 45px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+
+.otp-button {
+  background: linear-gradient(90deg, #0071bc 0%, #b31e6f 100%);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 14px 0;
+  cursor: pointer;
+  width: 8em;
+  transition: background 0.3s;
+}
+
+.otp-button:hover {
+  background: linear-gradient(90deg, #b31e6f 0%, #0071bc 100%);
+}
