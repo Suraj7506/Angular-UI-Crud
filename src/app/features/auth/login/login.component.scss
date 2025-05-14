@@ -14,7 +14,7 @@
 }
 
 .login-left {
-  position: relative; /* Needed for absolute positioning of child */
+  position: relative;
 }
 
 .login-bg-image {
@@ -180,7 +180,7 @@ input[type="password"]:focus {
   gap: 10px;
   justify-content: center;
   margin-bottom: 15px;
-  flex-wrap: wrap; /* Allow inputs to wrap if needed */
+  flex-wrap: wrap;
 }
 
 .otp-inputs input {
@@ -191,7 +191,7 @@ input[type="password"]:focus {
   border: 1px solid #ccc;
   border-radius: 6px;
   box-sizing: border-box;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
 }
 
 

@@ -19,6 +19,7 @@ export class HeaderComponent {
   }
 
   goToProfile(){
+   console.log('clicked');
 
   }
 }

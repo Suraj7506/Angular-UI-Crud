@@ -50,7 +50,7 @@ onVerifyOtp(): void {
   const enteredOtp = this.otp.join('');
   if (enteredOtp === '999999') {
     const vendorUser = { username: this.mobileNumber, role: 'user' };
-    this.auth.setUser(vendorUser);  // Now this works
+    this.auth.setUser(vendorUser);
     this.toastrService.success('OTP verified successfully');
     this.router.navigate(['/users']);
   } else {
@@ -58,6 +58,14 @@ onVerifyOtp(): void {
   }
 }
 
+switchTab(tab: string): void {
+  this.selectedTab = tab;
+  this.username = '';
+  this.password = '';
+  this.mobileNumber = '';
+  this.otpSent = false;
+  this.otp = ['', '', '', '', '', ''];
+}
 
 moveToNext(event: any, index: number): void {
   const input = event.target;

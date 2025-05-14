@@ -13,7 +13,7 @@ export interface Profile {
   providedIn: 'root'
 })
 export class ProfileService {
-  private apiUrl = 'http://localhost:3000/profiles'; // Adjust API URL as needed
+  private apiUrl = 'http://localhost:3000/profiles';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,6 @@ export class AuthService {
   private user: any = null;
 
   constructor(private router: Router) {
-    // Restore user from localStorage if available
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       this.user = JSON.parse(storedUser);
@@ -19,7 +18,7 @@ login(username: string, password: string): boolean {
     localStorage.setItem('user', JSON.stringify(this.user));
     return true;
   }
-  return false; // Do not allow any other login via password
+  return false;
 }
 
 setUser(user: any): void {

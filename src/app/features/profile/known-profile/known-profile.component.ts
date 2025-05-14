@@ -52,7 +52,6 @@ export class KnownProfileComponent implements OnInit {
   selectedSearchText: string = '';
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // to put next to the class fields of the component
   @ViewChild(MatSort) sort!: MatSort;
 
   public userRole?: string;
@@ -73,7 +72,6 @@ export class KnownProfileComponent implements OnInit {
     this.profileService.getProfiles().subscribe((profiles) => {
       console.log(profiles, '2');
       this.totalProfiles = profiles.length;
-      // Sort profiles by id descending to show latest first
       const sortedProfiles = profiles
         .slice()
         .sort((a: any, b: any) => (b.id ?? 0) - (a.id ?? 0));
@@ -154,7 +152,6 @@ export class KnownProfileComponent implements OnInit {
     );
   }
 
-  // Filtered Selected Places
   get filteredSelectedPlaces(): string[] {
     return this.selectedPlaces.filter((place) =>
       place.toLowerCase().includes(this.selectedSearchText.toLowerCase())

@@ -6,9 +6,10 @@
     </div>
     <div class="login-right">
       <div class="login-tabs">
-        <button [class.active]="selectedTab === 'hrAdmin'" (click)="selectedTab = 'hrAdmin'">HR Admin</button>
-        <button [class.active]="selectedTab === 'vendor'" (click)="selectedTab = 'vendor'">Vendor</button>
-      </div>
+  <button [class.active]="selectedTab === 'hrAdmin'" (click)="switchTab('hrAdmin')">HR Admin</button>
+  <button [class.active]="selectedTab === 'vendor'" (click)="switchTab('vendor')">Vendor</button>
+</div>
+
       <h2>Login to Field Force Assessment</h2>
       <form *ngIf="selectedTab === 'hrAdmin'" (ngSubmit)="onLogin()">
         <label for="adId">AD ID</label>
@@ -24,7 +25,6 @@
   <button type="submit" class="login-button">Send OTP</button>
 </form>
 
-<!-- OTP Input Section -->
 <div *ngIf="otpSent && selectedTab === 'vendor'" class="otp-section">
   <label>Enter OTP</label>
   <div class="otp-inputs">

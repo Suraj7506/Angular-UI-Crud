@@ -12,14 +12,12 @@
       <mat-icon>notifications</mat-icon>
     </button>
 
-    <!-- 👇 This whole div is clickable for the dropdown -->
     <div class="user-info" [matMenuTriggerFor]="userMenu" style="cursor: pointer;">
       <img src="../../../assets/profile.png" alt="User" />
       <span>Suraj Shukla</span>
       <mat-icon>arrow_drop_down</mat-icon>
     </div>
 
-    <!-- 🔽 Dropdown menu -->
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item (click)="goToProfile()">
         <mat-icon>person</mat-icon>

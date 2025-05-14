@@ -1,10 +1,8 @@
 <div class="profile-container">
-  <!-- Breadcrumb -->
   <div class="namepath">
     <span>Home / knownprofiles</span>
   </div>
 
-  <!-- Header -->
   <div class="knowdata">
     <h1>Known Profiles</h1>
     <div class="add-profile-container">
@@ -15,34 +13,28 @@
     </div>
   </div>
 
-  <!-- Main Table -->
   <main class="profile-main">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 profile-table" matSort>
 
-      <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
         <td mat-cell *matCellDef="let element">{{ element.name || '-' }}</td>
       </ng-container>
 
-      <!-- Description Column -->
       <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
         <td mat-cell *matCellDef="let element">{{ element.description || '-' }}</td>
       </ng-container>
 
-      <!-- Known Places Column -->
       <ng-container matColumnDef="locations">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Known Place Location</th>
         <td mat-cell *matCellDef="let element">{{ element.locations?.join(', ') || '-' }}</td>
       </ng-container>
 
-      <!-- Header & Row Definitions -->
       <tr mat-header-row *matHeaderRowDef="['name', 'description', 'locations']"></tr>
       <tr mat-row *matRowDef="let row; columns: ['name', 'description', 'locations'];"></tr>
     </table>
 
-    <!-- Pagination -->
     <mat-paginator
       [length]="totalProfiles"
       [pageSize]="pageSize"
@@ -53,7 +45,6 @@
     </mat-paginator>
   </main>
 
-  <!-- Side Panel -->
   <div *ngIf="showPanel" class="side-panel" [class.open]="showPanel">
     <div class="side-panel-header">
       <h2>{{ isEditMode ? 'Edit' : 'Add' }} Known Place Profile</h2>
@@ -62,24 +53,19 @@
       </button>
     </div>
 
-    <!-- Form Start -->
     <form>
-      <!-- Name Field -->
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>User Name <span class="text-danger">*</span></mat-label>
         <input type="text" maxlength="20" matInput placeholder="Enter user name" [(ngModel)]="profileForm.name" name="name" />
       </mat-form-field>
 
-      <!-- Description Field -->
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Description</mat-label>
         <textarea matInput placeholder="Enter description" [(ngModel)]="profileForm.description" name="description"></textarea>
       </mat-form-field>
 
-      <!-- Known Places Section -->
       <label class="section-label">Known Place Location <span class="text-danger">*</span></label>
       <div class="known-places-container">
-        <!-- Available Places -->
         <div class="known-places-list">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Available known places</mat-label>
@@ -99,7 +85,6 @@
           </div>
         </div>
 
-        <!-- Selected Places -->
         <div class="known-places-list">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Selected known places</mat-label>
@@ -120,7 +105,6 @@
         </div>
       </div>
 
-      <!-- Form Actions -->
       <div class="side-panel-actions">
         <button mat-raised-button color="primary" (click)="submitProfile()">Submit</button>
         <button mat-stroked-button color="warn" (click)="resetForm()">Reset</button>
